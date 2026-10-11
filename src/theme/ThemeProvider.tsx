@@ -1,9 +1,10 @@
 import { useLayoutEffect, useState, type ReactNode } from 'react';
 
+import { nextOf } from '@/lib/nextOf';
+import { readStorage, writeStorage } from '@/lib/storage';
 import { toKebabCase } from '@/lib/toKebabCase';
-
 import { ThemeContext } from './ThemeContext';
-import { isThemeName, themeNames, themes, type ThemeName } from './themes';
+import { colorSchemes, isThemeName, themeNames, themes, type ColorScheme, type ThemeName } from './themes';
 
 /**
  * localStorage key under which the user's explicit choice is saved.
@@ -19,28 +20,31 @@ interface ThemeProviderProps {
 }
 
 /**
+ * Finds the color scheme the operating system currently prefers.
+ *
+ * @returns The preferred scheme, or `undefined` if the system expresses none.
+ */
+function getSystemColorScheme(): ColorScheme | undefined {
+    return colorSchemes.find(
+        (scheme) => window.matchMedia(`(prefers-color-scheme: ${scheme})`).matches,
+    );
+}
+
+/**
  * Resolves the theme to start with: the saved choice if it is still a valid
- * theme, otherwise the first theme matching the system color scheme,
- * otherwise the first theme declared.
+ * theme, otherwise the first theme matching the system preference, otherwise
+ * the first theme declared.
  *
  * @returns The initial theme name.
  */
 function getInitialTheme(): ThemeName {
-    try {
-        const saved = localStorage.getItem(STORAGE_KEY);
-        if (isThemeName(saved)) {
-            return saved;
-        }
-    } catch {
-        /** localStorage can throw in private windows or when blocked; ignore it. */
+    const saved = readStorage(STORAGE_KEY);
+    if (isThemeName(saved)) {
+        return saved;
     }
 
-    const systemScheme = window.matchMedia('(prefers-color-scheme: light)').matches
-        ? 'light'
-        : 'dark';
-
-    const match = themeNames.find((name) => themes[name].colorScheme === systemScheme);
-    return match ?? themeNames[0];
+    const scheme = getSystemColorScheme();
+    return themeNames.find((name) => themes[name].colorScheme === scheme) ?? themeNames[0];
 }
 
 /**
@@ -76,14 +80,9 @@ function ThemeProvider({ children }: ThemeProviderProps) {
      * and remembers the choice. With two themes this is a plain toggle.
      */
     function toggleTheme(): void {
-        const next = themeNames[(themeNames.indexOf(theme) + 1) % themeNames.length];
+        const next = nextOf(themeNames, theme);
         setTheme(next);
-
-        try {
-            localStorage.setItem(STORAGE_KEY, next);
-        } catch {
-            /** Persistence is a convenience; the switch still works without it. */
-        }
+        writeStorage(STORAGE_KEY, next);
     }
 
     return (

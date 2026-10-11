@@ -1,9 +1,20 @@
 /**
+ * Color schemes the browser understands. Single source for the type and for
+ * the system-preference lookup.
+ */
+export const colorSchemes = ['light', 'dark'] as const;
+
+/**
+ * Union of the color schemes, derived from `colorSchemes`.
+ */
+export type ColorScheme = (typeof colorSchemes)[number];
+
+/**
  * A complete theme: its tokens plus the browser color scheme it belongs to.
  */
 export interface ThemeDefinition {
-    /** Whether this theme is light or dark, used for the system preference and native controls. */
-    colorScheme: 'light' | 'dark';
+    /** Color scheme this theme belongs to, used for system preference and native controls. */
+    colorScheme: ColorScheme;
     /** Color and font values for this theme. */
     tokens: ThemeTokens;
 }
@@ -36,38 +47,67 @@ export interface ThemeTokens {
 }
 
 /**
+ * Raw colors, named by what they are. Themes reference these instead of
+ * repeating hex values.
+ */
+const palette = {
+    paper: '#F4F4F2',
+    white: '#FFFFFF',
+    ink: '#111111',
+    graphite: '#5C5C5C',
+    crimson: '#B3261E',
+    gold: '#E3B01E',
+    black: '#0B0B0B',
+    charcoal: '#161616',
+    steel: '#2A2A2A',
+    snow: '#F2F2F2',
+    silver: '#A8A8A8',
+    red: '#D63A2F',
+} as const;
+
+/**
+ * Font stacks.
+ */
+const fonts = {
+    archivo: '"Archivo Black", Arial, sans-serif',
+    barlowCondensed: '"Barlow Condensed", Arial Narrow, sans-serif',
+    alfaSlab: '"Alfa Slab One", Georgia, serif',
+    oswaldVariable: '"Oswald Variable", Arial Narrow, sans-serif',
+} as const;
+
+/**
  * All available themes. To add a new one, add an entry here; the type, the
  * toggle and the initial-theme logic pick it up automatically.
  */
 export const themes = {
     light: {
-        colorScheme: 'light',
+        colorScheme: colorSchemes[0],
         tokens: {
-            background: '#F4F4F2',
-            surface: '#FFFFFF',
-            border: '#111111',
-            foreground: '#111111',
-            muted: '#5C5C5C',
-            accent: '#B3261E',
-            accentForeground: '#F4F4F2',
-            highlight: '#E3B01E',
-            fontDisplay: '"Archivo Black", Arial, sans-serif',
-            fontLabel: '"Barlow Condensed", Arial Narrow, sans-serif',
+            background: palette.paper,
+            surface: palette.white,
+            border: palette.ink,
+            foreground: palette.ink,
+            muted: palette.graphite,
+            accent: palette.crimson,
+            accentForeground: palette.paper,
+            highlight: palette.gold,
+            fontDisplay: fonts.archivo,
+            fontLabel: fonts.barlowCondensed,
         },
     },
     dark: {
-        colorScheme: 'dark',
+        colorScheme: colorSchemes[1],
         tokens: {
-            background: '#0B0B0B',
-            surface: '#161616',
-            border: '#2A2A2A',
-            foreground: '#F2F2F2',
-            muted: '#A8A8A8',
-            accent: '#E3B01E',
-            accentForeground: '#0B0B0B',
-            highlight: '#D63A2F',
-            fontDisplay: '"Alfa Slab One", Georgia, serif',
-            fontLabel: '"Oswald Variable", Arial Narrow, sans-serif',
+            background: palette.black,
+            surface: palette.charcoal,
+            border: palette.steel,
+            foreground: palette.snow,
+            muted: palette.silver,
+            accent: palette.gold,
+            accentForeground: palette.black,
+            highlight: palette.red,
+            fontDisplay: fonts.alfaSlab,
+            fontLabel: fonts.oswaldVariable,
         },
     },
 } satisfies Record<string, ThemeDefinition>;
