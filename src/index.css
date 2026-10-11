@@ -1,1 +1,15 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+
+@theme inline {
+    --color-background: var(--theme-background);
+    --color-surface: var(--theme-surface);
+    --color-border: var(--theme-border);
+    --color-foreground: var(--theme-foreground);
+    --color-muted: var(--theme-muted);
+    --color-accent: var(--theme-accent);
+    --color-accent-foreground: var(--theme-accent-foreground);
+    --color-highlight: var(--theme-highlight);
+
+    --font-display: var(--theme-font-display);
+    --font-label: var(--theme-font-label);
+}
