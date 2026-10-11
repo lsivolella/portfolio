@@ -57,7 +57,7 @@
 ---
 
 ## 🔗 Links Úteis
-* 🌐 **Demo Online:** 🚧 *Atualização em breve — o link será adicionado após o deploy na Vercel.*
+* 🌐 **Demo Online:** [lucas-sivolella.vercel.app](https://lucas-sivolella.vercel.app)
 * 📦 **Repositório:** [github.com/lsivolella/portfolio](https://github.com/lsivolella/portfolio)
 
 ---
@@ -198,9 +198,15 @@ O site é publicado gratuitamente na **Vercel**, com deploy automático a cada p
 
 1. Importe o repositório na Vercel (framework detectado automaticamente: **Vite**).
 2. Configure as variáveis de ambiente `VITE_EMAILJS_*` em *Project Settings > Environment Variables*.
-3. Como o projeto é uma SPA, será necessário um `vercel.json` com *rewrite* para `index.html`, para que rotas como `/projects` funcionem em acesso direto.
+3. Como o projeto é uma SPA, o arquivo `vercel.json` na raiz define um *rewrite* para `index.html`, para que rotas como `/projects` funcionem em acesso direto:
 
-> 🚧 *Link do site publicado e configuração final: atualização em breve.*
+```json
+{
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
+```
+
+🌐 **Site publicado:** [lucas-sivolella.vercel.app](https://lucas-sivolella.vercel.app)
 
 ---
 
