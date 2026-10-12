@@ -1,6 +1,5 @@
 import { useLayoutEffect, useState, type ReactNode } from 'react';
 
-import { nextOf } from '@/lib/nextOf';
 import { readStorage, writeStorage } from '@/lib/storage';
 import { toKebabCase } from '@/lib/toKebabCase';
 import { ThemeContext } from './ThemeContext';
@@ -69,24 +68,24 @@ function applyTheme(name: ThemeName): void {
  * localStorage in sync with it.
  */
 function ThemeProvider({ children }: ThemeProviderProps) {
-    const [theme, setTheme] = useState<ThemeName>(getInitialTheme);
+    const [theme, setThemeState] = useState<ThemeName>(getInitialTheme);
 
     useLayoutEffect(() => {
         applyTheme(theme);
     }, [theme]);
 
     /**
-     * Advances to the next theme in declaration order, wrapping around,
-     * and remembers the choice. With two themes this is a plain toggle.
+     * Selects a theme and remembers the choice.
+     *
+     * @param theme - Theme to activate.
      */
-    function toggleTheme(): void {
-        const next = nextOf(themeNames, theme);
-        setTheme(next);
-        writeStorage(STORAGE_KEY, next);
+    function setTheme(theme: ThemeName): void {
+        setThemeState(theme);
+        writeStorage(STORAGE_KEY, theme);
     }
 
     return (
-        <ThemeContext value={{ theme, toggleTheme }}>
+        <ThemeContext value={{ theme, setTheme }}>
             {children}
         </ThemeContext>
     );

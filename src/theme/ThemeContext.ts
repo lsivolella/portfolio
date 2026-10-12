@@ -8,8 +8,8 @@ import type { ThemeName } from './themes';
 export interface ThemeContextValue {
     /** Currently active theme. */
     theme: ThemeName;
-    /** Switches between light and dark. */
-    toggleTheme: () => void;
+    /** Selects a theme and remembers the choice. */
+    setTheme: (theme: ThemeName) => void;
 }
 
 /**
