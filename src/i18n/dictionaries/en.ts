@@ -22,6 +22,18 @@ export const en = {
         message: 'Message',
         send: 'Send message',
     },
+    accessibility: {
+        mainNavigation: 'Main navigation',
+        toggleTheme: 'Switch theme',
+        toggleLanguage: 'Switch language',
+    },
+    footer: {
+        rights: 'All rights reserved.',
+    },
+    colorSchemes: {
+        light: 'Light',
+        dark: 'Dark',
+    },
 };
 
 /**

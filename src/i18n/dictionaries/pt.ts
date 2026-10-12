@@ -22,4 +22,16 @@ export const pt: Dictionary = {
         message: 'Mensagem',
         send: 'Enviar mensagem',
     },
+    accessibility: {
+        mainNavigation: 'Navegação principal',
+        toggleTheme: 'Alternar tema',
+        toggleLanguage: 'Alternar idioma',
+    },
+    footer: {
+        rights: 'Todos os direitos reservados.',
+    },
+    colorSchemes: {
+        light: 'Claro',
+        dark: 'Escuro',
+    },
 };
