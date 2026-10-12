@@ -12,7 +12,7 @@ export interface LanguageContextValue {
     /** Dictionary of the active language, used for interface text. */
     text: Dictionary;
     /** Selects a language and remembers the choice. */
-    setLanguage: () => void;
+    setLanguage: (langugae: LanguageName) => void;
 }
 
 /**
