@@ -38,17 +38,44 @@ export function isLanguageName(value: unknown): value is LanguageName {
 }
 
 /**
- * Finds the first browser-preferred language that the site supports.
- * Region subtags are ignored, so `pt-BR` matches `pt`.
+ * Extracts the lowercase primary language subtag from a language tag.
+ *
+ * @param tag - Language tag such as `pt-BR`.
+ * @returns The primary subtag, for example `pt`.
+ */
+function getPrimaryTag(tag: string): string {
+    return tag.split('-')[0].toLowerCase();
+}
+
+/**
+ * Short uppercase code used as the label in the language switch.
+ *
+ * @param name - Supported language tag.
+ * @returns The short code, for example `PT`.
+ */
+export function getLanguageCode(name: LanguageName): string {
+    return getPrimaryTag(name).toUpperCase();
+}
+
+/**
+ * Finds the first browser-preferred language that the site supports. An exact
+ * tag match wins; otherwise the primary subtag is compared, so `pt-PT` falls
+ * back to `pt-BR` and `en-GB` to `en-US`.
  *
  * @returns The matching language, or `undefined` if none is supported.
  */
 export function getBrowserLanguage(): LanguageName | undefined {
     for (const locale of navigator.languages) {
-        const code = locale.split('-')[0];
-        if (isLanguageName(code)) {
-            return code;
+        if (isLanguageName(locale)) {
+            return locale;
+        }
+
+        const primary = getPrimaryTag(locale);
+        const match = languageNames.find((name) => getPrimaryTag(name) === primary);
+        if (match) {
+            return match;
         }
     }
+
     return undefined;
 }
