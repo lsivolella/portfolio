@@ -34,6 +34,15 @@ export const en = {
         light: 'Light',
         dark: 'Dark',
     },
+    time: {
+        present: 'Present',
+    },
+    education: {
+        status: {
+            inProgress: 'In progress',
+            completed: 'Completed',
+        },
+    },
 };
 
 /**

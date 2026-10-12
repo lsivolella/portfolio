@@ -34,4 +34,13 @@ export const pt: Dictionary = {
         light: 'Claro',
         dark: 'Escuro',
     },
+    time: {
+        present: 'Atual',
+    },
+    education: {
+        status: {
+            inProgress: 'Cursando',
+            completed: 'Concluído',
+        },
+    },
 };
