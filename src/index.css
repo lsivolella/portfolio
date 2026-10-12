@@ -15,8 +15,11 @@
 }
 
 /**
+ * Page-wide defaults, driven by the active theme.
  * Body text uses a fixed neutral font in both themes.
  */
 body {
+    background-color: var(--theme-background);
+    color: var(--theme-foreground);
     font-family: "Inter Variable", system-ui, sans-serif;
 }
