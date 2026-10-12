@@ -11,8 +11,8 @@ export interface LanguageContextValue {
     language: LanguageName;
     /** Dictionary of the active language, used for interface text. */
     text: Dictionary;
-    /** Switches between available languages. */
-    toggleLanguage: () => void;
+    /** Selects a language and remembers the choice. */
+    setLanguage: () => void;
 }
 
 /**

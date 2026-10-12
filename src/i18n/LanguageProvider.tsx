@@ -1,8 +1,6 @@
 import { useLayoutEffect, useState, type ReactNode } from 'react';
 
-import { nextOf } from '@/lib/nextOf';
 import { readStorage, writeStorage } from '@/lib/storage';
-
 import { LanguageContext } from './LanguageContext';
 import {
     getBrowserLanguage,
@@ -46,7 +44,7 @@ function getInitialLanguage(): LanguageName {
  * with it.
  */
 function LanguageProvider({ children }: LanguageProviderProps) {
-    const [language, setLanguage] = useState<LanguageName>(getInitialLanguage);
+    const [language, setLanguageState] = useState<LanguageName>(getInitialLanguage);
 
     useLayoutEffect(() => {
         document.documentElement.lang = language;
@@ -55,14 +53,13 @@ function LanguageProvider({ children }: LanguageProviderProps) {
     /**
      * Advances to the next language in declaration order and remembers the choice.
      */
-    function toggleLanguage(): void {
-        const next = nextOf(languageNames, language);
-        setLanguage(next);
-        writeStorage(STORAGE_KEY, next);
+    function setLanguage(language: LanguageName): void {
+        setLanguageState(language);
+        writeStorage(STORAGE_KEY, language);
     }
 
     return (
-        <LanguageContext value={{ language, text: translations[language], toggleLanguage }}>
+        <LanguageContext value={{ language, text: translations[language], setLanguage }}>
             {children}
         </LanguageContext>
     );
