@@ -26,6 +26,7 @@ export const pt: Dictionary = {
         mainNavigation: 'Navegação principal',
         toggleTheme: 'Alternar tema',
         toggleLanguage: 'Alternar idioma',
+        sectionIndex: 'Seções da página',
     },
     footer: {
         rights: 'Todos os direitos reservados.',
@@ -36,6 +37,7 @@ export const pt: Dictionary = {
     },
     time: {
         present: 'Atual',
+        expected: 'previsto',
     },
     education: {
         status: {

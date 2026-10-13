@@ -26,6 +26,7 @@ export const en = {
         mainNavigation: 'Main navigation',
         toggleTheme: 'Switch theme',
         toggleLanguage: 'Switch language',
+        sectionIndex: 'Page sections',
     },
     footer: {
         rights: 'All rights reserved.',
@@ -36,6 +37,7 @@ export const en = {
     },
     time: {
         present: 'Present',
+        expected: 'expected',
     },
     education: {
         status: {

@@ -23,3 +23,12 @@ body {
     color: var(--theme-foreground);
     font-family: "Inter Variable", system-ui, sans-serif;
 }
+
+/**
+ * Smooth anchor jumps, unless the user asked the system for reduced motion.
+ */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
