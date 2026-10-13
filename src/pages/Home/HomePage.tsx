@@ -1,16 +1,59 @@
-import { useLanguage } from '@/i18n/useLanguage';
-import { useTheme } from '@/theme/useTheme';
+import type { ComponentType } from 'react';
 
+import Container from '@/components/ui/Container';
+import { useLanguage } from '@/i18n/useLanguage';
+
+import EducationSection from './components/EducationSection';
+import ExperienceSection from './components/ExperienceSection';
+import Hero from './components/Hero';
+import HomeSection from './components/HomeSection';
+import LanguagesSection from './components/LanguagesSection';
+import SectionIndex from './components/SectionIndex';
+import SkillsSection from './components/SkillsSection';
+import { getSectionNumber, homeSections, type HomeSectionId } from './homeSections';
+
+/**
+ * Content component for each section. Typed against HomeSectionId, so a new
+ * section id without a component does not compile.
+ */
+const sectionContent: Record<HomeSectionId, ComponentType> = {
+    skills: SkillsSection,
+    experience: ExperienceSection,
+    education: EducationSection,
+    languages: LanguagesSection,
+};
+
+/**
+ * Home page: hero, then the numbered sections with a sticky side index.
+ */
 function HomePage() {
-    const { theme, } = useTheme();
     const { text } = useLanguage();
 
     return (
-        <div className='bg-background text-foreground min-h-screen p-8'>
-            <h1 className='font-display text-4xl'>{text.nav.home} ({theme})</h1>
-            <div className='flex gap-8 mt-4'>
+        <Container className="py-12">
+            <Hero />
+
+            <div className="mt-16 grid gap-12 lg:grid-cols-[11rem_1fr]">
+                <SectionIndex />
+
+                <div className="space-y-20">
+                    {homeSections.map((id, index) => {
+                        const Content = sectionContent[id];
+
+                        return (
+                            <HomeSection
+                                key={id}
+                                id={id}
+                                number={getSectionNumber(index)}
+                                title={text.home[id]}
+                            >
+                                <Content />
+                            </HomeSection>
+                        );
+                    })}
+                </div>
             </div>
-        </div >
+        </Container>
     );
 }
 

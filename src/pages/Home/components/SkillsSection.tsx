@@ -1,6 +1,43 @@
+import { skillGroups } from '@/data/skills';
+import { useLanguage } from '@/i18n/useLanguage';
+
+/**
+ * Skill groups with one tag per technology, plus years when known.
+ */
 function SkillsSection() {
+    const { language } = useLanguage();
+
+    const yearsFormat = new Intl.NumberFormat(language, {
+        style: 'unit',
+        unit: 'year',
+        unitDisplay: 'short',
+    });
+
     return (
-        <h1>Skills Section</h1>
+        <div className="space-y-6">
+            {skillGroups.map((group) => (
+                <div key={group.id}>
+                    <h3 className="mb-2 font-label uppercase tracking-wide text-muted">
+                        {group.title[language]}
+                    </h3>
+                    <ul className="flex flex-wrap gap-2">
+                        {group.items.map((skill) => (
+                            <li
+                                key={skill.name}
+                                className="border border-border bg-surface px-3 py-1"
+                            >
+                                {skill.name}
+                                {skill.years !== undefined && (
+                                    <span className="ml-2 text-muted">
+                                        {yearsFormat.format(skill.years)}
+                                    </span>
+                                )}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            ))}
+        </div>
     );
 }
 
