@@ -16,11 +16,31 @@ export const pt: Dictionary = {
         education: 'Formação',
         languages: 'Idiomas',
     },
+    /** pt.ts */
     contact: {
+        title: 'Entre em contato',
+        intro: 'Tem um projeto ou uma oportunidade em mente? Envie uma mensagem ou fale comigo por um dos canais.',
+        channels: {
+            email: 'E-mail',
+            whatsapp: 'WhatsApp',
+            linkedin: 'LinkedIn',
+            github: 'GitHub',
+        },
         name: 'Nome',
         email: 'E-mail',
         message: 'Mensagem',
         send: 'Enviar mensagem',
+        sending: 'Enviando…',
+        success: 'Mensagem enviada. Obrigado, responderei em breve.',
+        error: 'Algo deu errado. Tente novamente ou use um dos canais de contato.',
+        errors: {
+            required: 'Este campo é obrigatório.',
+            nameTooShort: 'Informe seu nome completo.',
+            invalidEmail: 'Informe um e-mail válido.',
+            messageTooShort: 'Escreva um pouco mais.',
+            messageTooLong: 'Mantenha a mensagem com menos de 2000 caracteres.',
+        },
+        wait: 'Aguarde',
     },
     accessibility: {
         mainNavigation: 'Navegação principal',
