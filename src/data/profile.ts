@@ -1,3 +1,4 @@
+import picture from '@/assets/images/profile_picture.jpg';
 import type { Profile } from '@/types/profile';
 
 /**
@@ -5,6 +6,7 @@ import type { Profile } from '@/types/profile';
  */
 export const profile: Profile = {
     name: 'Lucas Sivolella',
+    picture,
     role: {
         en: 'Software Engineer',
         pt: 'Engenheiro de Software',
