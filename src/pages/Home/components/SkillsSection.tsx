@@ -1,3 +1,4 @@
+import Tag from '@/components/ui/Tag';
 import { skillGroups } from '@/data/skills';
 import { useLanguage } from '@/i18n/useLanguage';
 
@@ -24,9 +25,10 @@ function SkillsSection() {
                         {group.items.map((skill) => (
                             <li
                                 key={skill.name}
-                                className="border border-border bg-surface px-3 py-1"
                             >
-                                {skill.name}
+                                <Tag>
+                                    {skill.name}
+                                </Tag>
                                 {skill.years !== undefined && (
                                     <span className="ml-2 text-muted">
                                         {yearsFormat.format(skill.years)}

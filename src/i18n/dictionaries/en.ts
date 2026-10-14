@@ -64,6 +64,19 @@ export const en = {
             completed: 'Completed',
         },
     },
+    projects: {
+        title: 'Projects',
+        intro: 'A timeline of what I have built, from the oldest to the most recent.',
+        kind: {
+            personal: 'Personal project',
+            professional: 'Professional project',
+        },
+        links: {
+            repository: 'Source code',
+            website: 'Website',
+            store: 'Store page',
+        },
+    },
 };
 
 /**

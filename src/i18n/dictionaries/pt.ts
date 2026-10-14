@@ -65,4 +65,17 @@ export const pt: Dictionary = {
             completed: 'Concluído',
         },
     },
+    projects: {
+        title: 'Projetos',
+        intro: 'Uma linha do tempo do que construí, do mais antigo ao mais recente.',
+        kind: {
+            personal: 'Projeto pessoal',
+            professional: 'Projeto profissional',
+        },
+        links: {
+            repository: 'Código-fonte',
+            website: 'Site',
+            store: 'Página na loja',
+        },
+    },
 };

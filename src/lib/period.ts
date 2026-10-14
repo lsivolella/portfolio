@@ -48,3 +48,13 @@ export function formatPeriod(
 export function sortByStartDesc<T extends { period: TimePeriod; }>(items: readonly T[]): T[] {
     return [...items].sort((a, b) => b.period.start.localeCompare(a.period.start));
 }
+
+/**
+ * Returns a copy of the items sorted by start date, oldest first.
+ *
+ * @param items - Items that have a `period`.
+ * @returns A new sorted array; the input is not modified.
+ */
+export function sortByStartAsc<T extends { period: TimePeriod; }>(items: readonly T[]): T[] {
+    return [...items].sort((a, b) => a.period.start.localeCompare(b.period.start));
+}
