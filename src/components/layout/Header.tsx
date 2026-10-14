@@ -17,14 +17,14 @@ function Header() {
 
     return (
         <header className="sticky top-0 z-10 border-b border-border bg-background">
-            <Container className="flex items-center justify-between gap-4 py-3">
+            <Container className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 py-3">
                 <Link to={routes.home} aria-label={profile.name}>
                     <Logo />
                 </Link>
 
                 <nav
                     aria-label={text.accessibility.mainNavigation}
-                    className="flex items-center gap-6"
+                    className="order-last flex w-full items-center justify-center gap-6 sm:order-0 sm:w-auto"
                 >
                     {routeNames.map((name) => (
                         <NavLink
