@@ -1,6 +1,7 @@
 import littleSimWorld from '@/assets/images/projects/little-sim-world.jpg';
 import portfolioHome from '@/assets/images/projects/portfolio-home.jpg';
 import poupaaiHome from '@/assets/images/projects/poupaai-home.png';
+import servifyLogo from '@/assets/images/projects/servify-logo.jpeg';
 import type { Project } from '@/types/projects';
 
 /**
@@ -62,5 +63,34 @@ export const projects: Project[] = [
         period: { start: '2025-09', end: '2025-12' },
         repositoryUrl: 'https://github.com/lsivolella/PoupaAi',
         media: poupaaiHome,
+    },
+    {
+        id: 'servify',
+        kind: 'personal',
+        name: 'Servify',
+        description: {
+            en: 'A web platform that automates the operational and financial management of service businesses that pay commissions per service, such as barbershops, beauty salons and aesthetics studios, with user management, services, scheduling based on each collaborator\'s availability, commissions and a KPI dashboard. Built by a team of five during the semester and elected the best work of the term. I worked on the back-end and front-end of the scheduling, availability and commission modules, modeled the relational data and its database migrations, wrote the seed script, and documented the business processes.',
+            pt: 'Plataforma web que automatiza a gestão operacional e financeira de negócios de serviços que remuneram por comissão, como barbearias, salões de beleza e estúdios de estética, com gestão de usuários, serviços, agendamento conforme a disponibilidade de cada colaborador, comissões e painel de indicadores. Desenvolvida por uma equipe de cinco pessoas ao longo do semestre, foi eleita o melhor trabalho do período. Atuei no back-end e no front-end dos módulos de agendamento, disponibilidade e comissão, modelei os dados relacionais e suas migrações, escrevi o script de carga inicial e documentei os processos de negócio.',
+        },
+        technologies: [
+            'React',
+            'TypeScript',
+            'Vite',
+            'Material UI',
+            'Java',
+            'Spring Boot',
+            'PostgreSQL',
+            'Flyway',
+            'Render',
+        ],
+        period: { start: '2026-03', end: '2026-06' },
+        repositoryUrl: 'https://github.com/lsivolella/Servify',
+        links: [
+            {
+                type: 'website',
+                href: 'https://plf-es-2026-1-ti2-1381100-grupo3-servify.onrender.com/',
+            },
+        ],
+        media: servifyLogo,
     },
 ];
