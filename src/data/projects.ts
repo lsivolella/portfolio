@@ -1,7 +1,7 @@
 import littleSimWorld from '@/assets/images/projects/little-sim-world.jpg';
 import portfolioHome from '@/assets/images/projects/portfolio-home.jpg';
 import poupaaiHome from '@/assets/images/projects/poupaai-home.png';
-import type { Project } from '@/types/project';
+import type { Project } from '@/types/projects';
 
 /**
  * Projects shown on the timeline. Order here does not matter: the page sorts

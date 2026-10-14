@@ -1,4 +1,4 @@
-import type { Project, ProjectLink } from '@/types/project';
+import type { Project, ProjectLink } from '@/types/projects';
 
 /**
  * Collects every link of a project into one list, with the repository first

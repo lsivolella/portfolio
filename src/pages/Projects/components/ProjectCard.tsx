@@ -5,7 +5,7 @@ import Tag from '@/components/ui/Tag';
 import { useLanguage } from '@/i18n/useLanguage';
 import { getProjectLinks } from '@/lib/getProjectLinks';
 import { formatPeriod } from '@/lib/period';
-import type { Project, ProjectLinkType } from '@/types/project';
+import type { Project, ProjectLinkType } from '@/types/projects';
 
 /**
  * Icon for each link type. Typed against ProjectLinkType, so a new type must
