@@ -6,7 +6,7 @@ import type { Dictionary } from './en';
 export const pt: Dictionary = {
     languageName: 'Português',
     nav: {
-        home: 'Início',
+        home: 'Sobre mim',
         projects: 'Projetos',
         contact: 'Contato',
     },

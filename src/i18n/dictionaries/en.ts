@@ -6,9 +6,9 @@ export const en = {
     /** Name of this language in its own language, shown in the language toggle. */
     languageName: 'English',
     nav: {
-        home: 'Home',
+        home: 'About me',
         projects: 'Projects',
-        contact: 'Contact',
+        contact: 'Contact'
     },
     home: {
         skills: 'Skills',
