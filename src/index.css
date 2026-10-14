@@ -32,3 +32,33 @@ body {
         scroll-behavior: smooth;
     }
 }
+
+/**
+ * Entrance animations, exposed as `animate-fade-in` and `animate-fade-up`.
+ */
+@theme {
+    --animate-fade-in: fade-in 0.6s ease-out both;
+    --animate-fade-up: fade-up 0.6s ease-out both;
+
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fade-up {
+        from {
+            opacity: 0;
+            transform: translateY(0.75rem);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}

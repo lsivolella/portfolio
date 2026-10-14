@@ -16,7 +16,7 @@ function Header() {
     const { text } = useLanguage();
 
     return (
-        <header className="sticky top-0 z-10 border-b border-border bg-background">
+        <header className="sticky top-0 z-10 animate-fade-in border-b border-border bg-background motion-reduce:animate-none">
             <Container className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 py-3">
                 <Link to={routes.home} aria-label={profile.name}>
                     <Logo />

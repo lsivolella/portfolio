@@ -3,6 +3,7 @@ import type { ComponentType } from 'react';
 import Container from '@/components/ui/Container';
 import { useLanguage } from '@/i18n/useLanguage';
 
+import Reveal from '@/components/ui/Reveal';
 import EducationSection from './components/EducationSection';
 import ExperienceSection from './components/ExperienceSection';
 import Hero from './components/Hero';
@@ -41,14 +42,15 @@ function HomePage() {
                         const Content = sectionContent[id];
 
                         return (
-                            <HomeSection
-                                key={id}
-                                id={id}
-                                number={getSectionNumber(index)}
-                                title={text.home[id]}
-                            >
-                                <Content />
-                            </HomeSection>
+                            <Reveal key={id}>
+                                <HomeSection
+                                    id={id}
+                                    number={getSectionNumber(index)}
+                                    title={text.home[id]}
+                                >
+                                    <Content />
+                                </HomeSection>
+                            </Reveal>
                         );
                     })}
                 </div>
