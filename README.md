@@ -14,7 +14,10 @@
     </td>
     <td>
       <div>
-        <img src="src/assets/images/ls_logo_white.png" alt="Logo do projeto" width="120px"/>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="src/assets/images/ls_logo_white.png">
+          <img src="src/assets/images/ls_logo_black.png" alt="Logo do projeto" width="120px"/>
+        </picture>
       </div>
     </td>
   </tr>
@@ -24,7 +27,7 @@
 
 ## 🚧 Status do Projeto
 
-![Status](https://img.shields.io/badge/Status-Em_desenvolvimento-yellow?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Publicado-brightgreen?style=for-the-badge)
 ![React](https://img.shields.io/badge/React-19-007ec6?style=for-the-badge&logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-6-007ec6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-8-007ec6?style=for-the-badge&logo=vite&logoColor=white)
@@ -38,6 +41,7 @@
 - [Sobre o Projeto](#-sobre-o-projeto)
 - [Funcionalidades Principais](#-funcionalidades-principais)
 - [Tecnologias Utilizadas](#-tecnologias-utilizadas)
+  - [Dependências](#-dependências)
 - [Arquitetura](#-arquitetura)
 - [Instalação e Execução](#-instalação-e-execução)
   - [Pré-requisitos](#pré-requisitos)
@@ -70,22 +74,23 @@ Este portfólio é a minha apresentação profissional em um só lugar: quem sou
 
 - **Por que existe:** reunir minha experiência, habilidades e projetos de forma clara, em português e em inglês, para recrutadores e equipes de diferentes países.
 - **Qual problema resolve:** um currículo em PDF é estático e logo fica desatualizado. Aqui, experiências, formação, habilidades e projetos vivem em arquivos de dados e são atualizados em um só lugar.
-- **O que entrega:** uma visão rápida do meu perfil (Home), a linha do tempo dos meus projetos pessoais e profissionais (Projetos) e canais diretos de contato, incluindo um formulário (Contato).
+- **O que entrega:** uma visão rápida do meu perfil (Sobre mim), a linha do tempo dos meus projetos pessoais e profissionais (Projetos) e canais diretos de contato, incluindo um formulário (Contato).
 - **Onde pode ser utilizado:** processos seletivos, networking e como cartão de visitas em perfis profissionais.
 
 ---
 
 ## ✨ Funcionalidades Principais
 
-> 🚧 Projeto em construção. Itens marcados com ✅ estão concluídos; os demais estão planejados.
-
-- ✅ **Roteamento por páginas:** navegação entre Home, Projetos e Contato com React Router.
-- 🎨 **Temas claro e escuro:** cores definidas por rótulos semânticos em um único arquivo, com preferência salva no navegador.
-- 🌐 **Internacionalização (PT/EN):** textos acessados por rótulos, com alternância de idioma.
-- 🏠 **Home:** apresentação pessoal, habilidades, experiências profissionais, formação acadêmica e idiomas, em seções numeradas.
-- 🗂️ **Projetos:** linha do tempo do mais antigo ao mais recente, com projetos pessoais (repositório no GitHub) e profissionais (link para página do projeto), cada um com descrição, tecnologias e imagem/GIF.
-- 📨 **Contato:** ícones clicáveis (e-mail, WhatsApp, LinkedIn, GitHub) e formulário com nome, e-mail e mensagem, validado e enviado por e-mail via EmailJS.
-- 📱 **Design responsivo:** layout adaptado para desktop, tablet e celular.
+- ✅ **Navegação por páginas:** Sobre mim, Projetos e Contato com React Router, e um índice lateral numerado e fixo na página inicial que destaca a seção atual.
+- ✅ **Sobre mim:** apresentação pessoal, habilidades por grupo, experiências profissionais, formação acadêmica e idiomas, em seções numeradas.
+- ✅ **Projetos:** linha do tempo do mais antigo ao mais recente, com projetos pessoais (repositório no GitHub) e profissionais (link para a página do projeto), cada um com descrição, tecnologias e imagem.
+- ✅ **Contato:** ícones clicáveis (e-mail, WhatsApp, LinkedIn, GitHub) e formulário com nome, e-mail e mensagem, validado e enviado por e-mail via EmailJS.
+- ✅ **Temas claro e escuro:** cores e fontes definidas por rótulos semânticos em um único arquivo, com preferência salva no navegador e respeito à preferência do sistema.
+- ✅ **Internacionalização (PT/EN):** textos de interface e conteúdo do currículo acessados por idioma, com detecção do idioma do navegador e preferência salva.
+- ✅ **Design responsivo:** layout adaptado para desktop, tablet e celular.
+- ✅ **Animações discretas:** transição entre páginas, entrada escalonada do cabeçalho de apresentação e revelação das seções ao rolar, desativadas automaticamente para quem prefere movimento reduzido.
+- ✅ **Acessibilidade:** marcos semânticos, nomes acessíveis traduzidos para os controles, `lang` da página atualizado com o idioma e foco visível.
+- ✅ **Proteção do formulário:** campo isca (*honeypot*) e intervalo mínimo entre envios.
 
 ---
 
@@ -99,9 +104,10 @@ Este portfólio é a minha apresentação profissional em um só lugar: quem sou
 * **Estilização:** Tailwind CSS 4 (via plugin `@tailwindcss/vite`)
 * **Roteamento:** React Router 7 (`react-router-dom`)
 * **Gerenciamento de Estado:** Context API (tema e idioma)
-* **Formulário e validação:** React Hook Form *(planejado)*
-* **Envio de e-mail:** EmailJS *(planejado)*
-* **Ícones:** react-icons *(planejado)*
+* **Formulário e validação:** React Hook Form
+* **Envio de e-mail:** EmailJS (`@emailjs/browser`)
+* **Ícones:** react-icons
+* **Fontes:** Fontsource (hospedadas no próprio projeto)
 * **Qualidade de código:** ESLint com `typescript-eslint`, `eslint-plugin-react-hooks` e `eslint-plugin-react-refresh`
 
 ### 🖥️ Back-end
@@ -113,6 +119,28 @@ Este portfólio é a minha apresentação profissional em um só lugar: quem sou
 * **Hospedagem:** Vercel
 * **Versionamento:** Git e GitHub
 
+### 📦 Dependências
+
+**Execução (`dependencies`)**
+
+| Pacote | Função |
+| :--- | :--- |
+| `react`, `react-dom` | Biblioteca de interface |
+| `react-router-dom` | Roteamento entre páginas |
+| `tailwindcss`, `@tailwindcss/vite` | Estilização utilitária e integração com o Vite |
+| `react-hook-form` | Controle e validação do formulário de contato |
+| `@emailjs/browser` | Envio de e-mail a partir do navegador |
+| `react-icons` | Ícones dos contatos, temas e projetos |
+| `@fontsource/alfa-slab-one`, `@fontsource/archivo-black`, `@fontsource-variable/oswald`, `@fontsource/barlow-condensed`, `@fontsource-variable/inter` | Fontes dos temas e do texto |
+
+**Desenvolvimento (`devDependencies`)**
+
+| Pacote | Função |
+| :--- | :--- |
+| `vite`, `@vitejs/plugin-react` | Servidor de desenvolvimento e build |
+| `typescript`, `@types/react`, `@types/react-dom`, `@types/node` | Tipagem estática |
+| `eslint`, `typescript-eslint`, `@eslint/js`, `eslint-plugin-react-hooks`, `eslint-plugin-react-refresh`, `globals` | Análise estática do código |
+
 ---
 
 ## 🏗 Arquitetura
@@ -121,22 +149,38 @@ O projeto é uma **Single Page Application (SPA)** em React, sem back-end, organ
 
 **Principais decisões:**
 
-- **Conteúdo orientado a dados:** experiências, formação, habilidades e projetos ficam em arquivos tipados em `src/data/`. As páginas apenas renderizam esses dados; atualizar o currículo significa editar um arquivo pequeno.
+- **Conteúdo orientado a dados:** experiências, formação, habilidades e projetos ficam em arquivos tipados em `src/data/`, com seus tipos em `src/types/`. As páginas apenas renderizam esses dados; atualizar o currículo significa editar um arquivo pequeno.
 - **Textos e cores por rótulos:** `i18n/` (PT/EN) e `theme/` (claro/escuro) seguem o mesmo padrão: um conjunto tipado de rótulos, com um valor por idioma/tema. O TypeScript aponta qualquer rótulo ausente em uma das variantes.
+- **Nada repetido à mão:** nomes de temas, idiomas e rotas são derivados dos próprios objetos de configuração, então adicionar um tema, um idioma ou uma página é uma mudança em um só lugar.
 - **Componentes por escopo:** o que pertence a uma única página fica na pasta da própria página; o que é compartilhado vai para `components/layout` (estrutura do site) ou `components/ui` (blocos genéricos).
 - **Direção de dependência:** páginas importam de `components/`, `data/`, `theme/` e `i18n/`, nunca o contrário, e nunca importam de outras páginas.
+- **Serviços isolados:** o envio de e-mail fica em `services/`, sem que o formulário conheça o EmailJS.
+
+**Fluxo da aplicação:**
+
+```mermaid
+flowchart TD
+    A[main.tsx] --> B[App.tsx]
+    B --> C[ThemeProvider]
+    C --> D[LanguageProvider]
+    D --> E[RouterProvider]
+    E --> F["Layout: Header + Outlet + Footer"]
+    F --> G[Sobre mim]
+    F --> H[Projetos]
+    F --> I[Contato]
+    J[("data/ e types/")] --> G
+    J --> H
+    J --> I
+    K["theme/ e i18n/"] -.-> F
+```
 
 **Rotas:**
 
 | Rota | Página | Conteúdo |
 | :--- | :--- | :--- |
-| `/` | Home | Sobre mim, habilidades, experiências, formação e idiomas |
+| `/` | Sobre mim | Apresentação, habilidades, experiências, formação e idiomas |
 | `/projects` | Projetos | Linha do tempo de projetos |
 | `/contact` | Contato | Ícones de contato e formulário |
-
-### Diagramas
-
-> 🚧 *Diagramas de arquitetura: atualização em breve.*
 
 ---
 
@@ -152,7 +196,7 @@ O projeto é uma **Single Page Application (SPA)** em React, sem back-end, organ
 
 ### 🔑 Variáveis de Ambiente
 
-O formulário de contato utilizará o EmailJS. Crie um arquivo **`.env.local`** na raiz do projeto (ele não é versionado) com as variáveis abaixo. O prefixo `VITE_` é obrigatório para que o Vite as exponha ao código do cliente.
+O formulário de contato usa o EmailJS. Crie um arquivo **`.env.local`** na raiz do projeto (ele não é versionado) com as variáveis abaixo. O prefixo `VITE_` é obrigatório para que o Vite as exponha ao código do cliente.
 
 | Variável | Descrição |
 | :--- | :--- |
@@ -160,7 +204,10 @@ O formulário de contato utilizará o EmailJS. Crie um arquivo **`.env.local`** 
 | `VITE_EMAILJS_TEMPLATE_ID` | ID do template de e-mail |
 | `VITE_EMAILJS_PUBLIC_KEY` | Chave pública do EmailJS |
 
-> 🚧 *As variáveis serão confirmadas quando o formulário de contato for implementado.*
+O template do EmailJS deve usar as variáveis `{{from_name}}`, `{{reply_to}}` e `{{message}}`.
+
+> [!NOTE]
+> Sem essas variáveis o site funciona normalmente, mas o envio do formulário de contato exibirá uma mensagem de erro.
 
 ---
 
@@ -197,7 +244,7 @@ npm run lint
 O site é publicado gratuitamente na **Vercel**, com deploy automático a cada push na branch principal.
 
 1. Importe o repositório na Vercel (framework detectado automaticamente: **Vite**).
-2. Configure as variáveis de ambiente `VITE_EMAILJS_*` em *Project Settings > Environment Variables*.
+2. Configure as variáveis de ambiente `VITE_EMAILJS_*` em *Project Settings > Environment Variables*. Elas são lidas no momento do build, então é necessário **fazer um novo deploy** após alterá-las.
 3. Como o projeto é uma SPA, o arquivo `vercel.json` na raiz define um *rewrite* para `index.html`, para que rotas como `/projects` funcionem em acesso direto:
 
 ```json
@@ -215,42 +262,54 @@ O site é publicado gratuitamente na **Vercel**, com deploy automático a cada p
 ```
 .
 ├── README.md                    # 📘 Documentação principal do projeto.
-├── index.html                   # 🌐 Ponto de entrada HTML do Vite.
+├── index.html                   # 🌐 Ponto de entrada HTML do Vite (título e meta tags).
 ├── package.json                 # 📦 Dependências e scripts.
+├── vercel.json                  # ☁️ Rewrite da SPA na Vercel.
 ├── vite.config.ts               # ⚙️ Configuração do Vite (plugins e alias @/).
 ├── tsconfig*.json               # 🛠️ Configuração do TypeScript.
 ├── eslint.config.js             # ✨ Regras do ESLint.
+├── .editorconfig                # ✍️ Padronização de estilo de código.
+├── .gitattributes               # 🧹 Normalização de finais de linha (LF).
 ├── /public                      # 📂 Arquivos estáticos com URL fixa.
 └── /src
-    ├── main.tsx                 # 🚪 Ponto de entrada React.
+    ├── main.tsx                 # 🚪 Ponto de entrada React e fontes.
     ├── App.tsx                  # 🧩 Providers (tema, idioma) e roteador.
     ├── router.tsx               # 🧭 Tabela de rotas.
-    ├── index.css                # 🎨 Tailwind e mapeamento dos rótulos de cor.
+    ├── index.css                # 🎨 Tailwind, rótulos de cor/fonte e animações.
+    ├── env.d.ts                 # 🔑 Tipos das variáveis de ambiente.
     ├── /pages                   # 📄 Uma pasta por página
-    │   ├── /Home                #    HomePage + components (Skills, Experience, Education, Languages)
-    │   ├── /Projects            #    ProjectsPage + components
-    │   └── /Contact             #    ContactPage + components (ContactForm, links)
+    │   ├── /Home                #    HomePage, seções (Skills, Experience, Education, Languages), Hero e índice lateral
+    │   ├── /Projects            #    ProjectsPage e ProjectCard
+    │   └── /Contact             #    ContactPage, ContactForm, ContactLinks e FormField
     ├── /components
     │   ├── /layout              # 🧱 Estrutura do site (Layout, Header, Footer).
-    │   └── /ui                  # 🧩 Blocos genéricos reutilizáveis.
-    ├── /theme                   # 🌗 Cores por rótulo, provider e hook de tema.
-    ├── /i18n                    # 🌐 Dicionários PT/EN, provider e hook de tradução.
-    ├── /data                    # 🗃️ Conteúdo do currículo e projetos (tipado).
-    ├── /lib                     # 🛠️ Funções utilitárias puras (ex.: formatação de datas).
-    └── /assets                  # 🖼️ Imagens importadas pelo código.
+    │   └── /ui                  # 🧩 Blocos genéricos (Container, Tag, Reveal, SegmentedToggle, toggles, Logo).
+    ├── /config                  # 🔧 Rotas e credenciais do EmailJS.
+    ├── /data                    # 🗃️ Conteúdo do currículo, projetos e contatos.
+    ├── /types                   # 🧬 Tipos dos dados (um arquivo por domínio).
+    ├── /theme                   # 🌗 Temas por rótulo, provider e hook.
+    ├── /i18n                    # 🌐 Dicionários PT/EN, provider e hook.
+    ├── /hooks                   # 🎣 Hooks próprios (seção ativa, intervalo entre envios).
+    ├── /services                # 🔌 Envio de e-mail (EmailJS).
+    ├── /lib                     # 🛠️ Funções utilitárias puras (datas, armazenamento, etc.).
+    └── /assets                  # 🖼️ Imagens importadas pelo código (logos, foto, projetos).
 ```
 
 ---
 
 ## 🎥 Demonstração
 
-> 🚧 *Capturas de tela e GIFs das páginas (modo claro e escuro, PT e EN, desktop e celular): atualização em breve.*
+Página inicial (tema escuro, em inglês):
+
+<img src="src/assets/images/projects/portfolio-home.jpg" alt="Página inicial do portfólio" width="800px"/>
+
+> Acesse o site publicado em [lucas-sivolella.vercel.app](https://lucas-sivolella.vercel.app) para ver os dois temas, os dois idiomas, a linha do tempo de projetos e o formulário de contato em funcionamento.
 
 ---
 
 ## 🧪 Testes
 
-O escopo atual do laboratório não inclui testes automatizados. A qualidade do código é verificada por:
+O escopo atual do projeto não inclui testes automatizados. A qualidade do código é verificada por:
 
 ```bash
 npm run lint    # análise estática (ESLint)
@@ -268,6 +327,7 @@ npm run build   # verificação de tipos (tsc) + build
 * 📖 [React Router](https://reactrouter.com/)
 * 📖 [React Hook Form](https://react-hook-form.com/)
 * 📖 [EmailJS](https://www.emailjs.com/docs/)
+* 📖 [Fontsource](https://fontsource.org/)
 * 📖 [Vercel](https://vercel.com/docs)
 
 ---
