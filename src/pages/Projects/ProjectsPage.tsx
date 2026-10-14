@@ -3,6 +3,7 @@ import { projects } from '@/data/projects';
 import { useLanguage } from '@/i18n/useLanguage';
 import { sortByStartAsc } from '@/lib/period';
 
+import Reveal from '@/components/ui/Reveal';
 import ProjectCard from './components/ProjectCard';
 
 /**
@@ -24,7 +25,9 @@ function ProjectsPage() {
                             aria-hidden="true"
                             className="absolute top-2 -left-[calc(2rem+0.5rem+1px)] size-4 rounded-full bg-accent"
                         />
-                        <ProjectCard project={project} />
+                        <Reveal>
+                            <ProjectCard project={project} />
+                        </Reveal>
                     </li>
                 ))}
             </ol>
