@@ -91,8 +91,8 @@ export const themes = {
             accent: palette.crimson,
             accentForeground: palette.paper,
             highlight: palette.gold,
-            fontDisplay: fonts.archivo,
-            fontLabel: fonts.barlowCondensed,
+            fontDisplay: fonts.alfaSlab,
+            fontLabel: fonts.oswaldVariable,
         },
     },
     dark: {
